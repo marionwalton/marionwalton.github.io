@@ -33,6 +33,7 @@ Week 2
 | -------- | ------- |
 | Data feminism  | Data visualisation intro    |
 | [Data feminism](https://uct.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma9910554096604041&context=L&vid=27UCT_INST:27UCT&lang=en&search_scope=MyInst_and_CI&adaptor=Local%20Search%20Engine)  | [Raw Graphs](https://www.rawgraphs.io/)    |
+| D’Ignazio, C. & Klein, L. F. (2020) Data feminism. Cambridge, Massachusetts: The MIT Press.  | Data vis tool    |
 
 Week 3
 -----
