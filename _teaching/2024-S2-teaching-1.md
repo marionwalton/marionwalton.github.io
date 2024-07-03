@@ -32,6 +32,7 @@ Week 2
 | Seminar    | Workshop |
 | -------- | ------- |
 | Data feminism  | Data visualisation intro    |
+| [Data feminism](https://uct.primo.exlibrisgroup.com/discovery/fulldisplay?docid=alma9910554096604041&context=L&vid=27UCT_INST:27UCT&lang=en&search_scope=MyInst_and_CI&adaptor=Local%20Search%20Engine)  | [Raw Graphs](https://www.rawgraphs.io/)    |
 
 Week 3
 -----
