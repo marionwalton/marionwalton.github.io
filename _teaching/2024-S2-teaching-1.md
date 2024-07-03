@@ -28,9 +28,10 @@ Week 1
 
 Week 2
 -----
+
 | Seminar    | Workshop |
 | -------- | ------- |
-| Data feminism  | Data visualisation intro   |
+| Data feminism  | Data visualisation intro    |
 
 Week 3
 -----
