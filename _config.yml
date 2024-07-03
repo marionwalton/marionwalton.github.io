@@ -21,11 +21,11 @@ repository               : "marionwalton/marionwalton.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "https://avatars.githubusercontent.com/u/4045958?v=4"
   name             : "Marion Walton"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
+  bio              : "Digital media research, data feminism"
+  location         : "Cape Town"
   employer         : "University of Cape Town"
   uri              : # URL
   email            : "marionwalton@uct.ac.za" 
