@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.555">
 
   <meta name="author" content="Marion Walton">
-  <title>Computational approaches in discourse analysis</title>
+  <title>Computational approaches in discourse analysis II</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -320,13 +320,15 @@
       margin-right: 0; 
     }
   </style>
+  <script src="CL_CDA_Lecture2_files/libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="CL_CDA_Lecture2_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 </head>
 <body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Computational approaches in discourse analysis</h1>
+  <h1 class="title">Computational approaches in discourse analysis II</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -357,9 +359,20 @@ Marion Walton
 <p>Question types:</p>
 <ol type="1">
 <li>Based on readings</li>
-<li>Apply concept to examples</li>
+<li>Use Wordtree and Voyant tools to answer questions about <a href="https://www.jasondavies.com/wordtree/?source=f5a4ec3e2c5e012682810914982a498e&amp;prefix=I">Mandela speech</a> and <a href="https://voyant-tools.org/?corpus=022c172c263bca71ae0b94bbd8fe4da2&amp;stopList=stop.multi.txt&amp;panels=cirrus,reader,trends,summary,contexts">Clicks Corpus</a>.</li>
+<li>Apply concepts from readings to examples from Clicks corpus</li>
 </ol>
 </section>
+
+<section id="from-readings" class="title-slide slide level1 center">
+<h1>From readings</h1>
+
+<img data-src="img/mcq1.png" class="r-stretch quarto-figure-center"><p class="caption">Multiple choice question</p></section>
+
+<section id="using-wordtree" class="title-slide slide level1 center">
+<h1>Using Wordtree</h1>
+
+<img data-src="img/ordering1.png" class="r-stretch quarto-figure-center"><p class="caption">Ordering question</p></section>
 
 <section>
 <section id="lecture-2---beyond-frequency" class="title-slide slide level1 center">
@@ -375,7 +388,7 @@ Marion Walton
 <section id="concepts" class="slide level2">
 <h2>Concepts</h2>
 <ul>
-<li>Collocation and</li>
+<li>Collocation</li>
 <li>Concordances</li>
 <li>Keyness</li>
 </ul>
@@ -386,9 +399,9 @@ Marion Walton
 <p>The text-based corpus includes:</p>
 <ul>
 <li>Text descriptions of the videos (n=200)</li>
-<li>Comments on a random sample of videos (n=60)</li>
+<li>Comments (n=3417) on a random sample of the videos (n=60)</li>
 <li>AI Transcriptions of the audio tracks (n=58)</li>
-<li>Google Vision labels for thumbnails and keyframes from videos</li>
+<li>Google Vision labels for thumbnails (n=131) and keyframes (n=3267) from videos</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -407,10 +420,207 @@ Marion Walton
 </section>
 <section id="section" class="slide level2" data-background-color="white" data-background-image="img/image-wall-clicks.png">
 <h2></h2>
-</section>
-<section id="section-1" class="slide level2" data-background-color="black" data-background-image="img/wbm_clicks_apology_06092020.png">
-<h2></h2>
 </section></section>
+<section>
+<section id="section-1" class="title-slide slide level1 center">
+<h1></h1>
+
+<img data-src="fig_output/histogram.png" class="r-stretch quarto-figure-center"><p class="caption">YouTube videos over time</p></section>
+<section id="most-prolific-channels" class="slide level2">
+<h2>Most Prolific Channels</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top" data-quarto-postprocess="true" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption>Transcriptions: Top Channels (n=60)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">channel</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">count_by_channel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SABC News</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">eNCA</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Newzroom Afrika</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Renaldo Gouws</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zenobia</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">emzi info</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Al Jazeera English</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ayanda Mafuyeka</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Azana Jezile</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Beauty recipes</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Buhle N</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Clicks South Africa</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Duke University - The Fuqua School of Business</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Economic Freedom Fighters</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fresh Trendz</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Havoc Mckush</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hot Mzansi</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ITV News</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ile Eko Omoluabi</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jade Godbolt</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jamaal Curry</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Justine South Africa Official</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">King Mshotinarry</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mama Shirat</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Morexskinglow</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mzansi Hotspot</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Newcastle Advertiser</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">NewsLiteSA</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Owamie Entertainment</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Prophet Pastor Ran</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rich SA</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Shiro</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">StellenboschNews Com</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Brother Leader</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">The Hottest Scoop</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TheKingzRSA</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TimesLIVE Video</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tshepo Matseba APR</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tshidi Radebe</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VIRAL VIDZ RSA</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section></section>
+<section id="section-2" class="title-slide slide level1 center">
+<h1></h1>
+
+<img data-src="fig_output/most_liked_channels.png" class="r-stretch quarto-figure-center"><p class="caption">Most “liked” channels</p></section>
+
+<section id="section-3" class="title-slide slide level1 center">
+<h1></h1>
+
+<img data-src="fig_output/most_commented_channels.png" class="r-stretch quarto-figure-center"><p class="caption">Most commented channels</p></section>
+
+<section id="section-4" class="title-slide slide level1 center">
+<h1></h1>
+
+<img data-src="img/thumbnail_categories_screenshot.png" class="r-stretch quarto-figure-center"><p class="caption">Videos by category</p></section>
+
 <section>
 <section id="collocation" class="title-slide slide level1 center">
 <h1>Collocation</h1>
@@ -440,21 +650,38 @@ Marion Walton
     181     115     103      71      60      54      51      51      42      40 </code></pre>
 </div>
 </div>
-<img data-src="CL_CDA_Lecture2_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<img data-src="CL_CDA_Lecture2_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section></section>
+<section>
+<section id="stopwords" class="title-slide slide level1 center">
+<h1>Stopwords</h1>
+
+</section>
+<section id="context-specific" class="slide level2">
+<h2>Context-specific</h2>
+<ul>
+<li>Languages</li>
+<li>Search queries (e.g.&nbsp;Clicks, advertisement)</li>
+<li>Discourses</li>
+</ul>
+</section>
+<section id="stopwords-in-voyant-tools" class="slide level2">
+<h2>Stopwords in Voyant Tools</h2>
+<p>Use Voyant Tools to add stopwords to the <a href="https://voyant-tools.org/?corpus=022c172c263bca71ae0b94bbd8fe4da2&amp;stopList=stop.multi.txt&amp;panels=cirrus,reader,trends,summary,contexts">Clicks Corpus</a>.</p>
+</section>
 <section id="collocations" class="slide level2">
 <h2>Collocations</h2>
-<p>We will explore collocation in the descriptions of the most commented videos in our random sample (n=35)</p>
+<p>We will explore collocation in the descriptions of the videos sample (n=200)</p>
 </section>
 <section class="slide level2">
 
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top">
+<table class="table caption-top" data-quarto-postprocess="true" style="font-size: 15px; margin-left: auto; margin-right: auto;">
 <caption>Top Collocations: Video Descriptions (n=200)</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">collocation</th>
-<th style="text-align: right;">count</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">collocation</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">count</th>
 </tr>
 </thead>
 <tbody>
@@ -540,158 +767,16 @@ Marion Walton
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</section>
-<section id="section-2" class="slide level2" data-background-color="white" data-background-image="img/word_network.png">
-<h2></h2>
-</section>
-<section class="slide level2">
 
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top">
-<caption>Top Channels by Comments (n=60)</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">channel</th>
-<th style="text-align: right;">count_by_channel</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Renaldo Gouws</td>
-<td style="text-align: right;">921</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Newzroom Afrika</td>
-<td style="text-align: right;">612</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SABC News</td>
-<td style="text-align: right;">435</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Al Jazeera English</td>
-<td style="text-align: right;">427</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Morexskinglow</td>
-<td style="text-align: right;">272</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Owamie Entertainment</td>
-<td style="text-align: right;">226</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Graga wa Drama</td>
-<td style="text-align: right;">95</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Beauty recipes</td>
-<td style="text-align: right;">92</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mama Shirat</td>
-<td style="text-align: right;">66</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Azana Jezile</td>
-<td style="text-align: right;">64</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">TimesLIVE Video</td>
-<td style="text-align: right;">41</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Hot Mzansi</td>
-<td style="text-align: right;">39</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Tshidi Radebe</td>
-<td style="text-align: right;">33</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Jade Godbolt</td>
-<td style="text-align: right;">14</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Buhle N</td>
-<td style="text-align: right;">12</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Duke University - The Fuqua School of Business</td>
-<td style="text-align: right;">11</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mzansi Hotspot</td>
-<td style="text-align: right;">11</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">The Brother Leader</td>
-<td style="text-align: right;">9</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">TheKingzRSA</td>
-<td style="text-align: right;">9</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">What are we doing here?</td>
-<td style="text-align: right;">7</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Shiro</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Prophet Pastor Ran</td>
-<td style="text-align: right;">5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Jamaal Curry</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Havoc Mckush</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">King Mshotinarry</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Justine South Africa Official</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">NewsLiteSA</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Rich SA</td>
-<td style="text-align: right;">1</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section></section>
-<section>
-<section id="comments-in-youtube-channel" class="title-slide slide level1 center">
-<h1>Comments in Youtube channel</h1>
 
-</section>
-<section id="section-3" class="slide level2" data-background-color="white" data-background-image="img/channel-comment-network-gephi-lite-export.png">
-<h2></h2>
-</section>
-<section id="comments---frequencies" class="slide level2">
-<h2>Comments - frequencies</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code> black people    eff  white    can   just racist    one racism    get 
-   747    702    456    407    357    331    271    240    208    206 </code></pre>
 </div>
 </div>
+</section>
+<section id="starting-points---stopwords" class="slide level2">
+<h2>Starting points - Stopwords</h2>
+<ul>
+<li>Experiment with a suitable Stoplist for the <a href="https://voyant-tools.org/?corpus=022c172c263bca71ae0b94bbd8fe4da2&amp;stopList=stop.multi.txt&amp;panels=cirrus,reader,trends,summary,contexts">Clicks Video Descriptions in Voyant Tools - with Stop List</a></li>
+</ul>
 </section></section>
 <section>
 <section id="concordance" class="title-slide slide level1 center">
@@ -701,14 +786,10 @@ Marion Walton
 <section id="concordance-1" class="slide level2">
 <h2>Concordance</h2>
 <ul>
-<li><p>A list of all the occurrences of a particular search term in a corpus, presented within the context that they occur in, usually a few words to the left and right of the search term.</p></li>
-<li><p>Co-text allows analyst to infer (some) context</p></li>
+<li><p>A list of all the occurrences of a particular search term in a corpus, presented within the <strong><code>context that they occur in</code></strong>, usually a few words to the left and right of the search term.</p></li>
+<li><p><strong><code>Co-text</code></strong> allows analyst to infer (some) context</p></li>
 </ul>
-<p>Context allows us to address qualitative research questions such as:</p>
-<ul>
-<li><p>What kind/s of discourse around race are happening in the comments?</p></li>
-<li><p>Do comments sections allow spaces of solidarity and counterpublics to emerge for black people?</p></li>
-</ul>
+<p>Context allows us to address <strong><code>qualitative research</code></strong> questions</p>
 </section>
 <section id="kwic" class="slide level2">
 <h2>KWIC</h2>
@@ -721,31 +802,26 @@ Marion Walton
 <ol type="1">
 <li><a href="https://www.jasondavies.com/wordtree/">Wordtree</a> by Jason Davies</li>
 <li>Multilingual concordancer by <a href="https://voyant-tools.org/">Voyant Tools</a></li>
+<li><a href="https://voyant-tools.org/?corpus=34960420ae71ddccd7d2a363bd676392&amp;stopList=stop.multi.txt&amp;panels=cirrus,reader,trends,summary,contexts">Rivonia Speech in Voyant Tools - with Stop List</a></li>
+<li><a href="https://voyant-tools.org/?corpus=022c172c263bca71ae0b94bbd8fe4da2&amp;stopList=stop.multi.txt&amp;panels=cirrus,reader,trends,summary,contexts">Clicks Video Descriptions in Voyant Tools - with Stop List</a></li>
+<li><a href="https://voyant-tools.org/?corpus=999ec9a5afffeb064d5ccffbc5afd28e&amp;stopList=stop.multi.txt&amp;panels=cirrus,reader,trends,summary,contexts">Clicks Comments (Random sample) in Voyant Tools - with Stop List</a></li>
 </ol>
 </section>
-<section id="starting-points" class="slide level2">
-<h2>Starting points</h2>
+<section id="starting-points---concordance" class="slide level2">
+<h2>Starting points - Concordance</h2>
 <ul>
-<li>Compare “controversial advert” to “racist advert” in the video description</li>
-<li>Compare “controversial” to “racist” in the video description</li>
-<li>Compare “black people” to “white people” in the comments</li>
-<li>How should we characterise the discourse in the comments dismissing anti-racism as childish or stupid?</li>
+<li>Compare “controversial advert” to “racist advert” in the <a href="https://voyant-tools.org/?corpus=022c172c263bca71ae0b94bbd8fe4da2&amp;stopList=stop.multi.txt&amp;panels=cirrus,reader,trends,summary,contexts">Clicks Video Descriptions in Voyant Tools - with Stop List</a></li>
+<li>Compare “controversial” to “racist” in the <a href="https://voyant-tools.org/?corpus=999ec9a5afffeb064d5ccffbc5afd28e&amp;stopList=stop.multi.txt&amp;panels=cirrus,reader,trends,summary,contexts">Clicks Comments (Random sample) in Voyant Tools - with Stop List</a></li>
+<li>Compare “black people” to “white people” in the <a href="https://voyant-tools.org/?corpus=999ec9a5afffeb064d5ccffbc5afd28e&amp;stopList=stop.multi.txt&amp;panels=cirrus,reader,trends,summary,contexts">Clicks Comments (Random sample) in Voyant Tools - with Stop List</a></li>
 </ul>
 </section>
 <section id="clicks-data" class="slide level2">
 <h2>Clicks data</h2>
-<p>We will investigate these questions using two textual datasets. You can download them from the links below:</p>
+<p>You can download both datasets from the links below:</p>
 <ul>
 <li><a href="https://marionwalton.github.io/media-test/data/videos_text.txt">Video description text</a> (1964)</li>
 <li><a href="https://marionwalton.github.io/media-test/data/comments_text.txt">Comments text</a> (1994)</li>
 </ul>
-<p>(You will need to use these for some of the quiz exercises.)</p>
-</section>
-<section class="slide level2">
-
-<ol start="2" type="1">
-<li>Video descriptions and comments on YouTube videos posted about the Clicks/Tresseme controversy (2020). (see Amathuba for link to files)</li>
-</ol>
 </section></section>
 <section>
 <section id="keyness" class="title-slide slide level1 center">
@@ -766,7 +842,7 @@ Marion Walton
 <section id="comparing-keyness-across-categories" class="slide level2">
 <h2>Comparing keyness across categories</h2>
 
-<img data-src="CL_CDA_Lecture2_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section></section>
+<img data-src="CL_CDA_Lecture2_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section></section>
 <section>
 <section id="conclusion" class="title-slide slide level1 center">
 <h1>Conclusion</h1>
@@ -775,19 +851,22 @@ Marion Walton
 <section id="limits-of-co-text" class="slide level2">
 <h2>Limits of “co-text”</h2>
 <p>Tools such as collocation, concordance and keyness allow us to investigate textual “co-text” and infer some contextual features.</p>
-<p>Situated meanings are elusive but broader patterns can be distinguished.</p>
-<p>Multimodality is a central aspect of context and is more challenging to access with current tools.</p>
+<p>Situated meanings are elusive but broader textual patterns can be distinguished.</p>
+<p>Multimodality is a central aspect of context. Multimodal meanings are challenging to access with current tools.</p>
+</section></section>
+<section>
+<section id="note" class="title-slide slide level1 center">
+<h1>Note</h1>
+
 </section>
-<section id="other-important-linguistic-features" class="slide level2">
-<h2>Other important linguistic features</h2>
-<p>Several important linguistic features for discourse analysis are not all easily investigated using frequency measures.</p>
+<section id="tf-idf" class="slide level2">
+<h2>TF-IDF</h2>
+<p>TF-IDF (Term Frequency-Inverse Document Frequency) is a commonly used measure of keyness.</p>
+<p>How important is a word is within a document relative to a collection of documents (corpus)?</p>
+<p>Can help highlight key words that distinguish a document while reducing the importance of commonly used words that appear in most documents.</p>
 <ul>
-<li>pronoun use</li>
-<li>modality</li>
-<li>metaphors</li>
-<li>agency</li>
-<li>passivisation</li>
-<li>nominalisation etc</li>
+<li>Term Frequency (TF) - how frequently a word appears in a document</li>
+<li>Inverse Document Frequency(IDF) - how unique that word is across all documents in the corpus.</li>
 </ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
