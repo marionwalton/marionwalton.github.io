@@ -1,0 +1,261 @@
+---
+title: "Visual methods and multimodal digital research"
+subtitle: "Building skills, infrastructure and supportive communities of practice in CFMS"
+author: "Marion Walton, CFMS"
+format:
+  revealjs: 
+    theme: dark
+---
+
+```{r setup, include=FALSE}
+#Load required packages
+
+require(quanteda)
+require(ggplot2)
+require(tidyverse)
+require(here)
+require(quanteda.textstats)
+#install.packages("quanteda.textplots",dependencies =T,repos = "http://cran.us.r-project.org")
+#install.packages("udpipe",dependencies =T,repos = "http://cran.us.r-project.org")
+#install.packages("spacyr",dependencies =T,repos = "http://cran.us.r-project.org")
+require(quanteda.textplots)
+require(quanteda.textmodels)
+require(udpipe)
+require(spacyr)
+require(knitr)
+require(kableExtra)
+
+#install.packages("topicmodels",dependencies =T)
+require(topicmodels)
+require(glue)
+
+
+```
+
+# Outline
+
+1.  Multimodal discourse in social media data
+- Challenges (case study class project FAM4038S)
+2. Global initiatives
+3. Local initiatives - SADILAR, Rhodes & UCT
+
+## Global initiatives
+- Meta -  [Facebook Content Library](https://developers.facebook.com/docs/content-library-and-api/content-library-api/) & [Facebook Ad Library](https://www.facebook.com/ads/library/?active_status=active&ad_type=political_and_issue_ads&country=ZA&media_type=all)
+- UoA [Digital Methods Initiative](https://digitalmethods.net/) and [4CAT](https://4cat.uct.ac.za/)
+- International Science Council [CODATA School for Research Data Science](https://codata.org/initiatives/data-skills/research-data-science-summer-schools/) 
+- [Data Carpentry for Social Science](https://datacarpentry.org/lessons/#social-science-curriculum) curricula and communities of practice
+
+## Local initiatives 
+1. [SADILAR](https://sadilar.org/en/)
+2. Digimethods at Rhodes University (SACOMM 2026)
+3. [Data Carpentry for Media Studies](https://marionwalton.github.io/2024-09-04-uct/) pilot, 
+4. Digital Methods for Social Media Research course (FAM4043S), 5. Summer term 2026, Western Cape?
+
+# The challenge 
+
+---
+
+## Class project - Digital Methods 2024
+
+![200 YouTube Videos, 6251 video scenes, 58 transcripts, 3417 comments, 88558 words ](img/thumbnail_categories_screenshot.png)
+
+## {background-color="white" background-image="img/influencer_transcripts.png"}
+
+
+##  {background-color="white" background-image="img/comment_network_sample.png"}
+
+##  {background-color="white" background-image="img/word_network.png"}
+
+
+## Hateful network structures 🤬 {background-color="white"}
+![Comment networks](img/sample_60_comments-gephi-lite-export.png)
+
+# Machine learning & visual meanings ✨
+
+# {background-color="black" background-image="img/detailed_timeline_screenshot.png"}
+---
+
+## Google's View ✨
+
+
+```{r}
+#for machine learning
+labels <- read_csv(
+  here("data","machine_learning","convert-google-vision-to-csv-f7fdf13f677ad1f913e22e79c0446dc3.csv"),
+  na= ""
+)
+
+labels_text <- labels %>%
+  rename(text = labelAnnotations)  %>%
+  mutate(post_id=paste(image_file)) %>%
+  subset(select = c(post_id,text) )
+
+mystopwords <- stopwords("english",
+                         source="snowball")
+#mystopwords <- c("clicks","hair","advertisement","ad","south","africa","na",mystopwords)
+#glue("Now {length(mystopwords)} stopwords:")
+
+d = corpus(labels_text) %>%
+  tokens(remove_punct=T) %>%
+  dfm() %>%
+  dfm_remove(mystopwords)
+textplot_wordcloud(d, max_words=100)
+```
+Clicks video timelines: As labelled by Google Vision
+
+## Default values - Google Vision
+
+![Hair-related labels](img/google_vision_labels_gephi-lite-export.png)
+
+
+
+## Multimodal discourse & social media
+
+- Scale of datasets
+- Corporate gatekeepers, fragile infrastructure & changing goalposts
+- Complexities of multimodal meanings and siloed tools for text vs images vs video
+- Non-trivial "Foundational" skills: coding, maths, statistics
+- Inapproriate curricula - counting cars, bacteria in a petri dish, types of bricks, Jane Austen
+
+## Neglected foundations 
+
+- (Multi-) Linguistic & multimodal analysis
+- Social & ethical concerns - We can do this, but should we?
+- Regulatory issues - Privacy & data protection 
+- Legal issues - Copyright & scraping
+- Vital role of auditing and oversight
+
+## Infrastructure
+
+## Meta Data Tools
+
+- [Facebook Content Library](https://developers.facebook.com/docs/content-library-and-api/content-library-api/) 
+
+- [Facebook Ad Library](https://www.facebook.com/ads/library/?active_status=active&ad_type=political_and_issue_ads&country=ZA&media_type=all) - 7 year access to "political" ads, 3 month access to all others
+
+## One library, two interfaces
+
+- Meta Content Library is database of publicly available content across Facebook and Instagram 
+- Gives researchers across the globe access to "the most comprehensive database of data to date"
+- Must apply for access to data, can work with posts from public figures, widely shared content etc
+- GUI - for qual researchers
+- API - for programmatic access 
+
+# {background-color="white" background-image="img/Instagram_wall.png"}
+
+##  {background-color="white" background-image="img/fb_ad_lib_hair_ads.png"}
+
+##
+
+- Ad library + Screen scrapers
+
+- Purposive sample of ads (N=558), including 126 unique images and 85 unique video files posted to Meta platforms over a six month period by 99 different advertisers.
+- Multimodal content analysis of images of people in the sample (n=183) 
+
+Walton, M. & Aderibigbe, D. (2024, October). Hairy industries
+The politics of advertising hair products and services to South Africans on Facebook and Instagram. Paper presented at AoIR2024: The 25th Annual Conference of the Association of Internet Researchers. Sheffield, UK: AoIR. Retrieved from http://spir.aoir.org. 
+
+
+## 4CAT
+
+GUI interface, locally hosted 4CAT.uct.ac.za (🙏ACC,ICTS)
+
+- Capture data & use machine learning services via API
+- Use together with screenscraper e.g. Zeeschuimer for TikTok, Twitter/X
+- Reproducible - records analytical settings
+- Upload own video and audio data (e.g. Youtube)
+- Accessible network analysis and machine learning
+- 6 months (?) for data storage, then access removed.
+
+Email marion.walton@uct.ac.za with research proposal and ethics clearance number
+
+
+## Conclusions
+
+We need to expand the forms of disciplinary knowledge considered foundational in data science:
+
+- Ongoing process of unraveling (multimodal) significances
+- Cultivating community - "living and connected know-hows" 
+- Building and reflecting on relationship between knower and known
+
+"treat data as a point of contact, a landing, an opportunity to get closer, to learn to care about a subject, or the people and places beyond data." (Loukissas, 2019:196)
+
+[Loukissas, Y. A. (2019). All data are local: Thinking critically in a data-driven society. The MIT Press.](https://direct.mit.edu/books/oa-monograph/4323/All-Data-Are-LocalThinking-Critically-in-a-Data)
+
+## Thank you!
+
+[marion.walton@uct.ac.za](marion.walton@uct.ac.za)
+
+[https://hci.social/@Marionwalton](https://hci.social/@Marionwalton)
+
+
+## Social media corpus
+
+A dataset of 200 Youtube videos focused on the controversy about a Tresseme advert posted on the Clicks website in September 2020.
+
+The text-based corpus includes:
+
+- Text descriptions of the videos (n=200)
+- Comments (n=3417) on a random sample of the videos (n=60)
+- AI Transcriptions of the audio tracks (n=58)
+- Google Vision labels for thumbnails (n=131) and keyframes (n=3267) from videos
+
+---
+
+![](img/clicks_ad.png)
+---
+
+## Social media corpus
+
+200 posts were selected from results returned by the YouTube API in response to the following query: "Query: clicks south africa\* hair (ad OR advertisement) -click" covering videos posted during the period 2020 - 2023 
+
+Posts were selected if they:
+
+- Related directly to the controversy, or 
+- Related to issues about body politics and racism
+
+A random sample (n=60) was selected for discourse analysis.
+
+# Adapted carpentries curriculum
+
+---
+
+
+##  {background-color="white" background-image="img/image-wall-clicks.png"}
+
+#
+![YouTube videos over time](fig_output/histogram.png)
+
+#
+
+![Commented Posts by Category](fig_output/plot.png)
+
+#
+
+![Most "liked" channels](fig_output/most_liked_channels.png)
+
+#
+
+![Most commented channels](fig_output/most_commented_channels.png)
+
+
+##  Data carpentry
+
+![The Carpentries workshops [https://carpentries.org/](https://carpentries.org/) provide a curriculum and global community of practice for teaching foundational coding and data skills to researchers across a range of disciplines. Our vision is to be the leading inclusive community teaching data and coding skills.](img/carpentries_mission.png).
+
+## What is Data carpentry (DC)?
+
+Initially designed to teach software development skills to scientists, Carpentries materials were developed for both data and library science pathways and are now taught by thousands of instructors around the world. Data carpentry workshops for a biological/ecological curriculum were later adapted for a range of different scientific disciplines and datasets, including one designed for social scientists (Teal et al., 2015). 
+
+[https://carpentries.org/](https://carpentries.org/)
+
+## Data carpentry for social science curriculum
+
+![Social Science curriculum](img/data_carpentry_overview.png).
+What "foundations" are missing?
+
+##
+Are data ethics and data justice not as "foundational" as spreadsheets and dataframes?
+
+
+
