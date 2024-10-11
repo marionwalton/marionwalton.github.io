@@ -292,6 +292,13 @@ Context allows us to address **`qualitative research`** questions
 4. [Clicks Video Descriptions in Voyant Tools - with Stop List](https://voyant-tools.org/?corpus=022c172c263bca71ae0b94bbd8fe4da2&stopList=stop.multi.txt&panels=cirrus,reader,trends,summary,contexts)
 5. [Clicks Comments (Random sample) in Voyant Tools - with Stop List](https://voyant-tools.org/?corpus=999ec9a5afffeb064d5ccffbc5afd28e&stopList=stop.multi.txt&panels=cirrus,reader,trends,summary,contexts)
 
+## How-to Videos
+
+- Please see Amathuba Lecture Slides tab for "How-to" video with demos of how to use Voyant Tools concordancer
+
+![Voyant Tools "How To" video on Amathuba](img/voyant_tools_screenshot.png)
+
+
 ## Starting points - Concordance
 
 - Compare "controversial advert" to "racist advert" in the [Clicks Video Descriptions in Voyant Tools - with Stop List](https://voyant-tools.org/?corpus=022c172c263bca71ae0b94bbd8fe4da2&stopList=stop.multi.txt&panels=cirrus,reader,trends,summary,contexts)
