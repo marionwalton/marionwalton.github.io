@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="CL_CDA_Lecture_1_2026_files/libs/clipboard/clipboard.min.js"></script>
+<script src="CL_CDA_Lecture_1_2026_files/libs/quarto-html/tabby.min.js"></script>
+<script src="CL_CDA_Lecture_1_2026_files/libs/quarto-html/popper.min.js"></script>
+<script src="CL_CDA_Lecture_1_2026_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="CL_CDA_Lecture_1_2026_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="CL_CDA_Lecture_1_2026_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="CL_CDA_Lecture_1_2026_files/libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
+
+  <meta name="author" content="Marion Walton">
+  <title>Computational approaches in discourse analysis I</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="CL_CDA_Lecture_1_2026_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="CL_CDA_Lecture_1_2026_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="CL_CDA_Lecture_1_2026_files/libs/revealjs/dist/theme/quarto-4df01d85d5cf19cc6202400f4f043f84.css">
+  <link href="CL_CDA_Lecture_1_2026_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="CL_CDA_Lecture_1_2026_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="CL_CDA_Lecture_1_2026_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="CL_CDA_Lecture_1_2026_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="CL_CDA_Lecture_1_2026_files/libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="CL_CDA_Lecture_1_2026_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Computational approaches in discourse analysis I</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Marion Walton 
+</div>
+</div>
+</div>
+
+</section>
+<section id="do-you-need-a-genai-assistant-for-content-analysis" class="title-slide slide level1 center">
+<h1>Do you need a GenAI “assistant” for content analysis?</h1>
+
+</section>
+
+<section id="outline" class="title-slide slide level1 center">
+<h1>Outline</h1>
+<ol type="1">
+<li>What is discourse?</li>
+<li>Discourse analysis &amp; Corpus linguistics</li>
+<li>Automating content analysis in Media studies</li>
+<li>Machine Learning &amp; LLMs in media research</li>
+</ol>
+</section>
+
+<section>
+<section id="quiz" class="title-slide slide level1 center">
+<h1>Quiz</h1>
+<ul>
+<li>Multiple Choice Questions (readings &amp; lectures)</li>
+</ul>
+</section>
+<section id="objectives" class="slide level2">
+<h2>Objectives</h2>
+<ul>
+<li>Disciplinary roots of automated text analysis: <strong><code>Computational Linguistics</code></strong>, <strong><code>Natural Language Processing</code></strong>, <strong><code>Corpus Linguistics</code></strong></li>
+<li>Key concepts: <strong><code>corpus</code></strong>, <strong><code>frequency</code></strong>, <strong><code>collocation</code></strong>, <strong><code>keyness</code></strong>, <strong><code>concordance</code></strong>.</li>
+<li>Useful complement to <strong><code>Critical Discourse Analysis</code></strong></li>
+</ul>
+</section></section>
+<section id="questions" class="title-slide slide level1 center">
+<h1>Questions</h1>
+<ul>
+<li>What disciplinary assumptions about language underlie various tools?</li>
+<li>What is gained and lost when we automate text analysis?</li>
+<li>How is text data prepared for analysis?</li>
+</ul>
+</section>
+
+<section>
+<section id="tools-for-text-analysis" class="title-slide slide level1 center">
+<h1>Tools for text analysis</h1>
+
+</section>
+<section id="getting-started" class="slide level2">
+<h2>Getting started</h2>
+<ol type="1">
+<li><a href="https://www.jasondavies.com/wordtree/">Wordtree</a> by Jason Davies</li>
+<li>Multilingual concordancer by <a href="https://service.sadilar.org/voyant/">Voyant Tools</a></li>
+</ol>
+<p>Examples created with <strong>4CAT</strong>,<strong>Orange</strong>, <strong><code>R language</code></strong> and the <strong><code>quanteda</code></strong> package which offers many useful text analysis functions.</p>
+</section></section>
+<section>
+<section id="readings" class="title-slide slide level1 center">
+<h1>Readings</h1>
+
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>Boumans, J. W., &amp; Trilling, D. (2016). Taking stock of the toolkit: An overview of relevant automated content analysis approaches and techniques for digital journalism scholars. Digital Journalism, 4(1), 8–23. doi:10.1080/21670811.2015.1096598</p></li>
+<li><p>Acosta, Fátima Ávila. 2025, Nov 10. AI in Social Sciences: How Large Language Models are Reshaping Text Analysis. The Algorithmic Review. https://www.globalcenter.ai/the- algorithmic-review/ai-in-social-sciences-how-large- language-models-are-reshaping-text-analysi</p></li>
+</ul>
+</section></section>
+<section id="additional" class="title-slide slide level1 center">
+<h1>Additional</h1>
+<ul>
+<li><p>Baker,P.et al.(2008). A useful methodological synergy? Combining critical discourse analysis and corpus linguistics to examine discourses of refugees an d asylum seekers in the UK press. Discourse &amp; society. 19.3.273–306.</p></li>
+<li><p>Baker, P. (2006). Using Corpora in Discourse Analysis. Continuum: London. (Chapter on Concordance)</p></li>
+</ul>
+</section>
+
+<section>
+<section id="example-data" class="title-slide slide level1 center">
+<h1>Example data</h1>
+<p>We will start with a relatively simple example (speeches) and then move to Clicks comments and metadata.</p>
+<p>Some Quiz questions will focus on these datasets.</p>
+</section>
+<section id="mandela-speeches" class="slide level2" data-background-color="white" data-background-image="img/rivonia.png">
+<h2>Mandela speeches</h2>
+</section>
+<section id="mandela-speeches-1" class="slide level2">
+<h2>Mandela speeches</h2>
+<p>We will investigate the text from two historical speeches by Nelson Mandela. You can download them from the links below:</p>
+<ul>
+<li><a href="https://marionwalton.github.io/media-test/data/rivonia.txt">Rivonia speech</a> (1964)</li>
+<li><a href="https://marionwalton.github.io/media-test/data/inaugural.txt">Inaugural speech</a> (1994)</li>
+</ul>
+</section>
+<section id="clicks-videos" class="slide level2" data-background-color="black" data-background-image="img/top_60_vid_timeline_screenshot.png">
+<h2>Clicks Videos</h2>
+</section>
+<section class="slide level2">
+
+<ol start="2" type="1">
+<li>Video descriptions and comments on YouTube videos posted about the Clicks/Tresseme controversy (2020). (see Amathuba for link to files)</li>
+</ol>
+</section></section>
+<section>
+<section id="what-is-discourse" class="title-slide slide level1 center">
+<h1>What is discourse?</h1>
+<ul>
+<li>Discourse can be a problematic term - used in many ways.</li>
+<li>Focus has been on language and written text but also other signifiers <em>in context</em>.</li>
+</ul>
+</section>
+<section id="linguistics" class="slide level2">
+<h2>Linguistics</h2>
+<p>Discourse as the conventions which govern language <strong><code>"above the sentence"</code></strong> e.g.&nbsp;generic conventions in writing, and norms which shape interaction between speaker &amp; addressee in spoken discourse</p>
+<p>e.g.&nbsp;academic discourse, legal discourse, media discourse</p>
+</section>
+<section id="poststructuralism" class="slide level2">
+<h2>Poststructuralism</h2>
+<p>Discourse as <strong><code>power and normativity</code></strong>, or “practices which systematically form the objects of which they speak” - e.g.&nbsp;medical discourse structures knowledge and social practices around health, constitutes entities e.g.&nbsp;“mental illness”, “homosexuality” and subject positions (doctor and patient) (see Foucault, 1972:49)</p>
+</section>
+<section id="media" class="slide level2">
+<h2>Media</h2>
+<p>“The hidden <strong><code>power of media discourse</code></strong> and the capacity of … power-holders to exercise this power depend on systematic tendencies in news reporting and other media activities.”(Fairclough, 1989:54)</p>
+</section></section>
+<section id="language-as-discourse" class="title-slide slide level1 center">
+<h1>Language as discourse</h1>
+<p>Every object or concept is surrounded by different ways of constructing it, which reflect different ways of representing the world. (Baker, 2006)</p>
+</section>
+
+<section>
+<section id="language-vs-discourse" class="title-slide slide level1 center">
+<h1>Language vs discourse</h1>
+<p>Language is just one part of discourse</p>
+<p>Apart from using written language as a semiotic system, discourse can also be <strong><code>multimodal</code></strong> (visual, audio, haptic signifiers)</p>
+</section>
+<section id="discourse-in-media-research" class="slide level2">
+<h2>Discourse in Media research</h2>
+<p>Classic qualitative approaches to media research such as <strong><code>Critical Discourse Analysis</code></strong> (CDA) are traditionally focused on relatively small amounts of text.</p>
+<p>Such approaches have continued relevance and new uses if they can scale up to engage with larger collections of text e.g.&nbsp;evaluating new computational tools and auditing biases and ideological assumptions in AI training data.</p>
+<p>Can be expanded and enhanced by using computational approaches such as automated text analysis.</p>
+</section>
+<section id="interrogating-ai" class="slide level2">
+<h2>Interrogating AI</h2>
+<p>We need to know where new tools come from, or their <strong><code>provenance</code></strong> and what they assume about language and the world (e.g.&nbsp;what counts as “context”, English dominance, built-in gender biases etc).</p>
+</section></section>
+<section>
+<section id="disciplinary-roots" class="title-slide slide level1 center">
+<h1>Disciplinary roots</h1>
+<p>Computational linguistics, Natural Language Processing and Corpus Linguistics are related areas which provide different approaches, concepts and tools for analysing textual data.</p>
+</section>
+<section id="natural-language-processing" class="slide level2">
+<h2>Natural language processing</h2>
+<p>Natural Language Processing (NLP) is a subfield of Computer Science NLP develops algorithms and models for computers to “understand”, interpret, and generate human language in a contextually relevant way.</p>
+<p>From Eliza the “therapy bot” to ChatGPT</p>
+<p>Joseph Weizenbaum’s “DOCTOR”/Eliza , created in 1966 mimicked discourse patterns of an Rogerian therapist.</p>
+</section>
+<section id="meet-eliza-1966" class="slide level2">
+<h2>Meet Eliza, 1966</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://findingeliza.org/try.html"><img data-src="img/eliza.png"></a></p>
+<figcaption>eliza</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-eliza-effect" class="slide level2">
+<h2>The Eliza effect</h2>
+<p>Anthropomorphic designs exploit the fact that users assume that computer systems which fluently output human language can also understand, think and engage in meaning-making as we do. This is known as the “ELIZA effect”.</p>
+</section>
+<section id="nlp-and-media-studies" class="slide level2">
+<h2>NLP and media studies</h2>
+<p>Automatic text analysis methods used in media studies include:</p>
+<ul>
+<li>Supervised text classification</li>
+<li>Topic modelling</li>
+<li>Word embeddings</li>
+</ul>
+<p>Very useful for describing large collections of textual data such as social media posts, web pages, or interview transcripts.</p>
+</section></section>
+<section>
+<section id="text-as-data" class="title-slide slide level1 center">
+<h1>Text as data</h1>
+
+</section>
+<section id="section" class="slide level2">
+<h2>1964</h2>
+
+<img data-src="CL_CDA_Lecture_1_2026_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><p>Mandela’s speech from the dock, Rivonia Trial, 20 April 1964</p>
+</section>
+<section id="section-1" class="slide level2">
+<h2>1994</h2>
+
+<img data-src="CL_CDA_Lecture_1_2026_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><p>Mandela’s inaugural speech as President, 10 May 1994</p>
+</section>
+<section id="pronouns-and-nationalism" class="slide level2">
+<h2>Pronouns and nationalism</h2>
+<p><strong><code>"I/me"</code></strong> highlights individual stance.</p>
+<p><strong><code>"We/us"</code></strong> groups people together, suggests community, masks power.</p>
+<p><strong><code>"They/them"</code></strong> Disidentifies, “others”</p>
+</section>
+<section id="what-is-a-corpus" class="slide level2">
+<h2>What is a Corpus?</h2>
+<p>A <em>corpus</em> is a set of documents which stores large quantities of real-life text. The plural form of the word is <em>corpora</em>.</p>
+<p>You can find a set of South African language corpora on the <a href="https://corpus.sadilar.org/corpusportal/explore/corpus">SADILAR corpus portal</a> website.</p>
+<p>Individual documents or posts which make up the corpus can be labelled and stored separately from one another in the corpus format.</p>
+</section></section>
+<section>
+<section id="frequency" class="title-slide slide level1 center">
+<h1>Frequency</h1>
+<p>Frequency is a key concept underpinning the analysis of text and corpora.</p>
+<p>Nonetheless, as a purely quantitative measure it needs to be used with a sensitivity to</p>
+<ol type="1">
+<li><p>The word-distribution patterns in human languages.</p></li>
+<li><p>The importance of context for meaning</p></li>
+</ol>
+</section>
+<section id="frequency-ideology" class="slide level2">
+<h2>Frequency &amp; ideology</h2>
+<ul>
+<li>People have choices “No terms are neutral. Choice of words expresses an ideological position”. (Stubbs, 1996:107; Baker, 47)</li>
+<li>“If people speak or write in an unexpected way, or make one linguistic choice over another, more obvious one, then that reveals something about their intentions, whether conscious or not.” (Baker:48)</li>
+<li>Only certain choices are available at any one time (e.g.&nbsp;historically)</li>
+</ul>
+</section>
+<section id="problems-with-frequency" class="slide level2">
+<h2>Problems with frequency</h2>
+<ul>
+<li>Can be reductive and generalising</li>
+<li>Can oversimplify</li>
+<li>Focus on differences between word distributions can obscure more interesting interpretations.</li>
+</ul>
+</section></section>
+<section id="exercise" class="title-slide slide level1 center">
+<h1>Exercise</h1>
+<p>Download the text of the <a href="https://marionwalton.github.io/media-test/data/rivonia.txt">Rivonia speech</a>, copy it and paste it into the <a href="https://www.jasondavies.com/wordtree/">Wordtree</a> tool and explore the patterns</p>
+</section>
+
+<section id="exercise-1" class="title-slide slide level1 center">
+<h1>Exercise</h1>
+<p>Use Wordtree to explore the <a href="https://www.jasondavies.com/wordtree/?source=f5a4ec3e2c5e012682810914982a498e&amp;prefix=I">Mandela speech from the dock</a> (Rivonia Trial, 1964). How is Mandela’s pronoun use different to that in his <a href="https://www.jasondavies.com/wordtree/?source=0875e42e9ee452357d3d2eea4d032776&amp;prefix=we">inauguration speech</a> as President in 1994?</p>
+</section>
+
+<section>
+<section id="beyond-frequency" class="title-slide slide level1 center">
+<h1>Beyond frequency</h1>
+
+</section>
+<section id="meanings-are-contextual" class="slide level2">
+<h2>Meanings are contextual</h2>
+<p>Need to go beyond simply counting frequencies.</p>
+<p>Context plays an important role in meaning.</p>
+<p>For discourse analysis, frequent clusters of words are more revealing than just looking at individual words in isolation</p>
+</section>
+<section id="concepts" class="slide level2">
+<h2>Concepts</h2>
+<ul>
+<li>Concordances</li>
+<li>Collocation (next lecture)</li>
+<li>Keyness (not studying keyness this year)</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="concordance" class="title-slide slide level1 center">
+<h1>Concordance</h1>
+
+</section>
+<section id="concordance-1" class="slide level2">
+<h2>Concordance</h2>
+<ul>
+<li><p>A list of all the occurrences of a particular search term in a corpus, presented within the <strong><code>context that they occur in</code></strong>, usually a few words to the left and right of the search term.</p></li>
+<li><p><strong><code>Co-text</code></strong> allows analyst to infer (some) context</p></li>
+</ul>
+<p>Context allows us to address <strong><code>qualitative research</code></strong> questions</p>
+</section>
+<section id="kwic" class="slide level2">
+<h2>KWIC</h2>
+<ul>
+<li>Concordance is also known as “key word in context” or KWIC analysis</li>
+</ul>
+</section>
+<section id="starting-points---concordance" class="slide level2">
+<h2>Starting points - Concordance</h2>
+<ul>
+<li>Open the <a href="https://service.sadilar.org/voyant/">local Voyant tools</a> in your browser.<br>
+</li>
+<li>In September 2020, Clicks faced a public outcry about a <em>TRESemmé</em> advertisement posted on its website. How did YouTube videos describe the Tresemme advertisement? Use Voyant Tools to compare the concordances for the words <a href="https://service.sadilar.org/voyant/?corpus=43f660fa48bdcfaf9fc33c3904cfa52c&amp;query=controversial&amp;view=Contexts">controversial</a> and <a href="https://service.sadilar.org/voyant/?corpus=43f660fa48bdcfaf9fc33c3904cfa52c&amp;query=racist&amp;view=Contexts">racist</a> in the video descriptions<br>
+</li>
+<li>Download and unzip the text files <a href="https://amathuba.uct.ac.za/d2l/common/dialogs/quickLink/quickLink.d2l?ou=211477&amp;type=content&amp;rcode=3AFCCA9F-D97E-4A99-BF84-8C5C2A3B1E23-1687593">nlp_datasets_wordtree_voyant</a> if you want to try using Voyant with the other corpora</li>
+</ul>
+</section></section>
+<section>
+<section id="conclusion" class="title-slide slide level1 center">
+<h1>Conclusion</h1>
+
+</section>
+<section id="limits-of-co-text" class="slide level2">
+<h2>Limits of “co-text”</h2>
+<p>Tools such as collocation, concordance and keyness allow us to investigate textual “co-text” and infer some contextual features.</p>
+<p>Situated meanings are elusive but broader textual patterns can be distinguished.</p>
+<p>Multimodality is a central aspect of context. Multimodal meanings are challenging to access with current tools.</p>
+</section></section>
+<section>
+<section id="lecture-2---machine-learning-and-genai" class="title-slide slide level1 center">
+<h1>Lecture 2 - Machine learning and GenAI</h1>
+
+</section>
+<section id="machine-learning" class="slide level2">
+<h2>Machine learning</h2>
+<p>Most contemporary uses of the term “AI” actually refer to Machine Learning. Machine Learning is a subfield of AI which identifies patterns in data in order to use them for prediction. The word “learning” is used to refer to the way these systems can produce outputs which have not been explicitly programmed. Learning algorithms can be supervised or unsupervised. Supervised algorithms learn by example. Unsupervised learning algorithms classify data into groups of similar items.</p>
+</section>
+<section id="social-media-corpus" class="slide level2">
+<h2>Social media corpus</h2>
+<p>In this lecture we’ll be investigating a dataset of 200 Youtube videos focused on the controversy about a Tresseme advert posted on the Clicks website in September 2020.</p>
+<p>The corpus includes:</p>
+<ul>
+<li>Text descriptions of the videos (n=200)</li>
+<li>Comments (n=3417) on a random sample of the videos (n=60)</li>
+<li>AI Transcriptions of the audio tracks (n=58)</li>
+<li>Video thumbnails (n=131) and keyframes (n=3267) from videos</li>
+</ul>
+</section>
+<section class="slide level2">
+
+
+<img data-src="img/youtuber.png" class="r-stretch"></section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="ml-clicks-video-descriptions" class="title-slide slide level1 center">
+<h1>ML &amp; Clicks Video Descriptions</h1>
+
+</section>
+<section id="section-2" class="slide level2" data-background-color="white" data-background-image="img/word_network.png">
+<h2></h2>
+</section>
+<section id="framing" class="slide level2">
+<h2>Framing</h2>
+<p>“Framing essentially involves selection and salience. To frame is to select some aspects of a perceived reality and make them more salient in a communicating text, in such a way as to promote a particular problem, definition, causal interpretation, moral evaluation, and/or treatment recommendation for the item described.” (Entman, 1993:52)</p>
+</section>
+<section id="machine-learning-and-frame-analysis" class="slide level2">
+<h2>Machine learning and frame analysis</h2>
+<ul>
+<li>Co-occurrence of words interpreted as a <strong><code>frame</code></strong> using statistical techniques like cluster analysis.</li>
+<li>Cluster analysis - organising items into groups, or clusters, on the basis of how closely associated they are.</li>
+<li>Co-occurrences of words graphically visualized as <strong><code>networks of words</code></strong></li>
+</ul>
+</section>
+<section id="section-3" class="slide level2" data-background-color="white" data-background-image="img/word_network.png">
+<h2></h2>
+</section></section>
+<section id="proximity" class="title-slide slide level1 center">
+<h1>Proximity</h1>
+<p>We describe proximity of words using terms from linguistics</p>
+<ul>
+<li><p><em>Collocation</em> - the above-chance frequent co-occurrence of two words <em>within a pre-determined span</em>, usually five words on either side of the word under investigation. Finds “advert was not racist”, “advert was racist” and “racist advert”</p></li>
+<li><p><em>Co-occurence</em> - Above-chance frequency of ordered occurrence of two <em>adjacent terms</em> in a text corpus, indicator of semantic proximity (closeness of meaning) or an idiomatic expression e.g.&nbsp;“bad hair”</p></li>
+</ul>
+</section>
+
+<section>
+<section id="ml-clicks-controversy" class="title-slide slide level1 center">
+<h1>ML &amp; Clicks Controversy</h1>
+
+</section>
+<section id="collocations" class="slide level2">
+<h2>Collocations</h2>
+<p>We will explore collocation in the descriptions of the videos sample (n=200)</p>
+</section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top" style="font-size: 15px; margin-left: auto; margin-right: auto;">
+<caption>Top Collocations: Video Descriptions (n=200)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">collocation</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">julius malema</td>
+<td style="text-align: right;">94</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">eff protest</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">across country</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dry damaged</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">controversial advert</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">health beauty</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">stores across</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">black women</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EFF members</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">racist advert</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">comment share</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">seed oil</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">face pack</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">following controversial</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">beauty retailer</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">thank much</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tune afrika</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">subscribing liking</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">today eff</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">fine flat</td>
+<td style="text-align: right;">6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="comments---collocations" class="slide level2">
+<h2>Comments - Collocations</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top" style="font-size: 15px; margin-left: auto; margin-right: auto;">
+<caption>Top Collocations: Clicks Comments (n=35)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">collocation</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">black people</td>
+<td style="text-align: right;">135</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">black women</td>
+<td style="text-align: right;">106</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">white people</td>
+<td style="text-align: right;">102</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">natural hair</td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">black woman</td>
+<td style="text-align: right;">45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">fine flat</td>
+<td style="text-align: right;">41</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">145</td>
+<td style="text-align: left;">black hair</td>
+<td style="text-align: right;">39</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">flat hair</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">dry damaged</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">can use</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">face cream</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">go back</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">27</td>
+<td style="text-align: left;">black person</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">straight hair</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">49</td>
+<td style="text-align: left;">can get</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">aneeza gold</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">76</td>
+<td style="text-align: left;">white women</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">64</td>
+<td style="text-align: left;">damaged hair</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">political party</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">thank ninja</td>
+<td style="text-align: right;">16</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section></section>
+<section>
+<section id="overview---automated-content-analysis" class="title-slide slide level1 center">
+<h1>Overview - Automated Content Analysis</h1>
+
+</section>
+<section id="topic-modeling---news" class="slide level2">
+<h2>Topic Modeling - News</h2>
+<p>News researcher can automatically categorize a huge collection of news articles into different topics. For instance:</p>
+<div style="font-size:26px">
+<ul>
+<li>Topic 1: Politics: “election”, “government”, “policy”, “vote”.</li>
+<li>Topic 2: Sports: “game”, “team”, “score”, “tournament”.</li>
+<li>Topic 3: Technology: “innovation”, “software”, “internet”, “startup”.</li>
+<li>Topic 4: Health: “medical”, “treatment”, “healthcare”, “disease”.</li>
+</ul>
+</div>
+<p>Now the researcher can organize their content more effectively and find relevant articles based on their research question.</p>
+</section>
+<section id="topic-modeling---comments" class="slide level2">
+<h2>Topic Modeling - Comments</h2>
+<p>Topic modeling doesn’t work as well with small samples. For example Clicks comments data doesn’t divide neatly into separate topics.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      Topic 1  Topic 2     Topic 3     Topic 4   Topic 5  Topic 6  Topic 7 
+ [1,] "clicks" "🤣"        "black"     "racist"  "just"   "can"    "hair"  
+ [2,] "eff"    "go"        "people"    "us"      "like"   "one"    "white" 
+ [3,] "must"   "know"      "think"     "country" "get"    "use"    "ad"    
+ [4,] "right"  "say"       "women"     "time"    "need"   "also"   "even"  
+ [5,] "take"   "u"         "😂"        "people"  "want"   "yes"    "look"  
+ [6,] "malema" "see"       "racism"    "eff"     "love"   "good"   "make"  
+ [7,] "thing"  "said"      "person"    "never"   "way"    "skin"   "fine"  
+ [8,] "matter" "really"    "beautiful" "racism"  "going"  "face"   "saying"
+ [9,] "stupid" "something" "white"     "now"     "well"   "please" "flat"  
+[10,] "stores" "back"      "many"      "race"    "better" "thank"  "racist"</code></pre>
+</div>
+</div>
+</section>
+<section id="topic-modeling" class="slide level2">
+<h2>Topic Modeling</h2>
+<p>In NLP, topic modeling applies unsupervised learning on a corpus to produce a summary sets of terms representing the collection’s overall primary set of topics.</p>
+</section>
+<section id="topic-modeling-1" class="slide level2">
+<h2>Topic Modeling</h2>
+<p>Used to identify topics present in a corpus.</p>
+<p>LDA algorithm identifies co-occurrence patterns of words and latent structure of the text</p>
+<p>LDA assumes: - each doc is a mixture of topics - each topic has characteristic word distribution</p>
+</section>
+<section id="why-use-topic-modeling" class="slide level2">
+<h2>Why Use Topic Modeling</h2>
+<ul>
+<li>Exploratory work on large dataset</li>
+<li>Summarise key themes</li>
+<li>Reduces complexity and size of dataset (dimensionality reduction)</li>
+<li>Faster Information Retrieval - find by themes not keyword matches</li>
+</ul>
+</section>
+<section id="goals-of-ml" class="slide level2">
+<h2>Goals of ML</h2>
+<p>The goal of machine learning is to:</p>
+<ul>
+<li>make accurate predictions.</li>
+<li>use large datasets</li>
+<li>use complex models which recognise nonlinear relationships between several variables.</li>
+</ul>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+</section>
+<section id="boumans-trilling-2016" class="slide level2">
+<h2><img data-src="img/journ_framework.png" alt="Boumans &amp; Trilling, 2016"></h2>
+<div style="font-size:20px">
+<p>Boumans, J. W., &amp; Trilling, D. (2016). Taking stock of the toolkit: an overview of relevant automated content analysis approaches and techniques for digital journalism scholars. Digital Journalism, 4(1), 8-23. https://doi.org/10.1080/21670811.2015.1096598</p>
+</div>
+</section>
+<section id="approaches" class="slide level2">
+<h2>Approaches</h2>
+</section>
+<section id="simple-automation" class="slide level2">
+<h2>Simple automation</h2>
+<p>Dictionary approaches (e.g.&nbsp;sentiment analysis)</p>
+<ul>
+<li>specifies explicit rules</li>
+<li>best for coding manifest data</li>
+<li>sentiments are contextual - does not always travel well</li>
+</ul>
+</section>
+<section id="sentiment-in-clicks-transcripts" class="slide level2">
+<h2>“Sentiment” in Clicks transcripts</h2>
+
+<img data-src="CL_CDA_Lecture_1_2026_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
+<section id="supervised-machine-learning" class="slide level2">
+<h2>Supervised machine learning</h2>
+<p>Model <strong><code>"learns"</code></strong> from (encodes) decisions by human coders.</p>
+<ul>
+<li>Makes more efficient use of human work.</li>
+<li>Classifiers can be re-used and allow for faster response (e.g., Hopkins and King 2010; Jurka et al.&nbsp;2013).</li>
+<li>Inter-cultural generalisability?</li>
+</ul>
+</section>
+<section id="unsupervised-machine-learning" class="slide level2">
+<h2>Unsupervised machine learning</h2>
+<ul>
+<li>Unsupervised machine learning helps to describe discourses, frames or topics in an open way - doesn’t impose prior assumptions</li>
+<li>Similar to qualitative methods</li>
+<li>Difficult to audit</li>
+<li>Can replicate bias</li>
+</ul>
+</section>
+<section id="strengths" class="slide level2">
+<h2>Strengths</h2>
+<ul>
+<li>Flexibility &amp; scale</li>
+<li>Classification tasks</li>
+<li>Reality-based tasks with right and wrong answers</li>
+</ul>
+</section>
+<section id="weaknesses" class="slide level2">
+<h2>Weaknesses</h2>
+<ul>
+<li>Culturally constructed categories</li>
+<li>Potential linguistic/culture/race/gender biases</li>
+<li>Unintended uses</li>
+<li>Variability &amp; difficulties with auditing</li>
+</ul>
+</section></section>
+<section>
+<section id="generative-ai" class="title-slide slide level1 center">
+<h1>Generative AI</h1>
+<p>Generative AI (GenAI) refers to computational systems used in popular chatbots (e.g.&nbsp;ChatGPT, Gemini, Claude, Copilot) which include generative models such as LLMs or diffusion models. Generative AI systems respond to prompts from users as input, which can include text and various forms of digital media. The systems produce synthetic media output (such as digital text, simulated dialogue, images, videos, audio, and software code) using generative models, which are statistical encodings of their training data.</p>
+</section>
+<section id="genai-in-research" class="slide level2">
+<h2>GenAI in Research</h2>
+<p>How and to what extent should we use AI for academic work?</p>
+<p>GenAI tools can improve efficiency for researchers, but they also carry risks, particularly the danger of overestimating the veracity and impartiality of AI-generated information.</p>
+<p>Human oversight needed to avoid inaccurate or fraudulent results</p>
+<p>(Acosta, 2025)</p>
+</section>
+<section id="strengths-1" class="slide level2">
+<h2>Strengths</h2>
+<p>LLMs excel at tasks like detecting emotions, identifying opinions, recognizing hate speech, and detecting topics</p>
+<p>“zero shot” analyses (no training data required)</p>
+<p>(Acosta, 2025)</p>
+<p>Developing NLP scripts for reproducible analysis (MW)</p>
+</section>
+<section id="useful" class="slide level2">
+<h2>Useful</h2>
+<p>The LLM answers short targeted questions about text content for text classification and categorization</p>
+<p>e.g.&nbsp;Study of GBV news coverage - did each article explicitly mention the perpetrator or not?</p>
+<p>(Acosta, 2025)</p>
+</section>
+<section id="straightforward" class="slide level2">
+<h2>Straightforward</h2>
+<p>Using this thumbnail image from the YouTube video, <em>transcribe</em> any text in the image. Concatenate it with the text from [body] [videoTitle] and [channelTitle]</p>
+
+<img src="img/three_images.png" alt="drawing" width="50%" title="three images from clicks corpus" class="r-stretch"></section>
+<section id="challenging" class="slide level2">
+<h2>Challenging</h2>
+<div style="font-size:20px">
+<p>Use the image and text together to classify the type of YouTube channel, assigning one best-fitting label from the following list:</p>
+<p><em>PARTY_AFFILIATED</em>: “Channels who are created by or endorsed by a South African political party. ” e.g.&nbsp;Economic Freedom Fighters, Cyril Ramaphosa, Democratic Alliance spokesperson, Member of Parliament for Action SA”</p>
+<p><em>NEWS_CREATOR</em> “Accounts who distribute and create news related content primarily through social and video networks. These actors are independent from wider news institutions. e.g.&nbsp;Infotainment, podcasters, comedy, gaming and lifestyle, commentary.”</p>
+<p><em>TRADITIONAL_NEWS_ORGANISATION</em> “Accounts which are affiliated with a legitimate mainstream media organization.” e.g Broadcasters, networks, news publishers, featuring professional journalists, reporters and clips from the accounts of these media organizations”</p>
+<p><em>MUSIC_CREATOR</em>: “Channel of a minor music production company or of a digital creator who creates and shares music and content related to music. For example, Pasto Espirito, Kay Cee, Sfatalito &amp; Taa Nats, First Klass Terorrists”</p>
+<p><em>OTHER</em>: “Channel which does not obviously belong to any of the above categories”</p>
+</div>
+
+<img src="img/three_images.png" alt="drawing" width="50%" title="three images from clicks corpus" class="r-stretch"></section>
+<section id="result" class="slide level2">
+<h2>Result</h2>
+
+<img data-src="img/channel_type.png" class="r-stretch quarto-figure-center"><p class="caption">Channel types and publication dates in YouTube search results for “Clicks advert South Africa” 2020-2023</p></section></section>
+<section>
+<section id="validation" class="title-slide slide level1 center">
+<h1>Validation</h1>
+<p>Any LLM classification needs careful validation and review</p>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+
+<img src="img/renaldo.png" alt="drawing" width="50%" class="r-stretch"><p>“Former DA MP Renaldo Gouws joins FF Plus” - Timeslive 25 September 2025.</p>
+<div style="font-size:26px">
+<p>[Google] Gemini 3.1 Flash Lite: The channel belongs to Renaldo Gouws, a political commentator and content creator who provides <em>independent commentary</em> on South African news and political events. The video content focuses on reporting and critiquing the actions of a political party, which aligns with the definition of an independent news and commentary creator.</p>
+</div>
+</section>
+<section id="example-1" class="slide level2">
+<h2>Example</h2>
+
+<img src="img/kat_white.png" alt="drawing" width="50%" title="video from kat white's channel - journalist" class="r-stretch"><p>Kat White is a journalist who sometimes posts stories on YouTube</p>
+<div style="font-size:26px">
+<p>[Google] Gemini 3.1 Flash Lite: <em>PARTY_AFFILIATED</em>: The content features individuals wearing EFF-branded clothing and explicitly promoting the party’s political actions, such as the protest against Clicks. This indicates <em>the channel is directly aligned with and promoting the agenda of</em> the Economic Freedom Fighters political party.</p>
+</div>
+</section>
+<section id="example-2" class="slide level2">
+<h2>Example</h2>
+
+<img src="img/clicks_skin.jpeg" alt="drawing" width="50%" title="Beauty influencer" class="r-stretch"><p>Beauty influencer recommends a skin lightening product</p>
+<div style="font-size:26px">
+<p>[Google] Gemini 3.5 Flash: *BEAUTY_CREATOR<strong> </strong>Reason:** The transcribed text (“Lighten your skin safely with this 2 lightening lotion”) combined with the video description (“Use any of this 2 Lightening body lotion to lighten your skin safely for best result and Morexskinglow”) focuses on <em>skincare, beauty tips, and product recommendations</em>. The presenter in the thumbnail is a beauty influencer/creator sharing advice on skin lightening and achieving a “skin glow,” which <em>aligns perfectly</em> with the definition of a BEAUTY_CREATOR.</p>
+</div>
+</section></section>
+<section id="concerns-about-genai" class="title-slide slide level1 center">
+<h1>Concerns about GenAI</h1>
+<div style="font-size:28px">
+<ul>
+<li>LLM classification needs human supervision and data validation</li>
+<li>Limited applicability for low-resource languages (languages which are not well-represented online or in dictionaries, word lists, NLP tools etc.)</li>
+<li>Pay careful attention to prompt quality</li>
+<li>Challenges with reproducibility</li>
+<li>Technical skills and costs</li>
+<li>Representational and environmental harm [MW]</li>
+<li>Privacy and data protection [MW]</li>
+</ul>
+</div>
+<p>(Acosta, 2025)</p>
+</section>
+
+<section>
+<section id="conclusion-1" class="title-slide slide level1 center">
+<h1>Conclusion</h1>
+<p>With careful validation, Generative AI can be helpful for low-level, focused tasks in content classification, unless data includes low resource languages.</p>
+<p>Nonetheless, “AI-generated output alone is not the end goal for social scientists, but a starting point to explain broader social phenomena.” (Acosta, 2025)</p>
+<p>Generative AI lacks understanding and moral agency. As a result it has limited capacity to engage with and interpret social realities, particularly in the Global South.</p>
+</section>
+<section id="cda-cl" class="slide level2">
+<h2>CDA &amp; CL</h2>
+<p>Interaction and synergy (Baker et al)</p>
+<p>Corpus linguistics can expand the scope of discourse analysis:</p>
+<ul>
+<li>Techniques provided a “map” of the corpus, pinpointed areas for subsequent close analysis</li>
+<li>Found examples and quantified them through absolute and relative frequencies</li>
+<li>Lexical patterns, keywords, clusters, collocates revealed novel patterns of use.</li>
+<li>“it can reinforce, refute or revise a researcher’s intuition and show them why and how much their suspicions were grounded. (Partington 200;3:12)</li>
+</ul>
+</section>
+<section id="natural-language-processing-1" class="slide level2">
+<h2>Natural Language Processing</h2>
+<ul>
+<li>Sentiment analysis - major limitations</li>
+<li>Topic modeling less useful for this small, focused (&amp; reflexive) corpus</li>
+<li>Sociograms particularly useful as they recorded contours of discourse practices</li>
+</ul>
+</section>
+<section id="importance-of-critical-discourse-analysis" class="slide level2">
+<h2>Importance of Critical Discourse Analysis</h2>
+<ul>
+<li>Essential perspectives if we are to address racism, sexism and Northern/Anglocentric biases in tools</li>
+<li>Important skillset for auditing and adapting tools and datasets</li>
+</ul>
+</section>
+<section id="extra" class="slide level2">
+<h2>Extra</h2>
+</section>
+<section id="clicks-data" class="slide level2">
+<h2>Clicks data</h2>
+<p>You can download both datasets from the links below:</p>
+<ul>
+<li><a href="https://marionwalton.github.io/media-test/data/videos_text.txt">Video description text</a> (1964)</li>
+<li><a href="https://marionwalton.github.io/media-test/data/comments_text.txt">Comments text</a> (1994)</li>
+</ul>
+</section>
+<section id="further-reading" class="slide level2">
+<h2>Further reading</h2>
+<ul>
+<li><p>Jurka, Timothy P., Loren Collingwood, Amber Boydstun, Emiliano Grossman, and Wouter van Atteveldt. 2013. “RTextTools : A Supervised Learning Package for Text Classification.”The R Journal 5 (1): 6–12.</p></li>
+<li><p>Hopkins, Daniel J. &amp; Gary King. 2010. A Method of Automated Nonparametric Content: Analysis for Social Science. American Journal of Political Science, Vol. 54.1. 2010. 229–247.</p></li>
+<li><p>Vlieger, Esther, and Loet Leydesdorff. 2012. “Content Analysis and the Measurement of Meaning: The Visualization of Frames in Collections of Messages.” In Research Methodologies, Innovations and Philosophies in Systems Engineering and Information Systems, edited by Manuel Mora, Ovsei Gelman, Anette Steenkamp and Manesh S. Raisinghani, 322–340. Hershey, PA: Information Science Reference.</p></li>
+</ul>
+</section>
+<section id="example-3" class="slide level2">
+<h2>Example</h2>
+<p>YouTube #abahambe - xenophobic/afrophobic build up to March and March “deadline” June 30 2026</p>
+
+<img data-src="img/protest.jpeg" class="r-stretch quarto-figure-center"><p class="caption">School kids admitted in hospital</p></section>
+<section id="qwen3-vl-flash" class="slide level2">
+<h2>Qwen3 VL Flash</h2>
+<div style="font-size:28px">
+<p>The thumbnail uses sensationalist language (“School Kids Admitted in Hospital”) combined with what appears to be coded political messaging. The phrase “Omayifrendi bayaqeda ngathi” (Omayifrendi has poisoned the food) is a known slogan used by the Economic Freedom Fighters (EFF) to accuse political opponents of poisoning food supplies — often as part of their anti-establishment rhetoric. The inclusion of “Ngcebo Biyela” (a real EFF politician) and the visual of men in traditional attire (possibly EFF supporters) reinforces this. The overall tone, imagery, and use of politically charged slogans strongly indicate this is a party-affiliated channel, likely promoting or reporting on content aligned with the EFF’s narrative. Label: PARTY_AFFILIATED</p>
+</div>
+</section>
+<section id="gemini-3.5-flash" class="slide level2">
+<h2>Gemini 3.5 Flash</h2>
+<div style="font-size:28px">
+<p>NEWS_CREATOR <strong>Reason:</strong> The channel (Ngcebo Biyela) functions as an independent news creator and commentator. It distributes and discusses current affairs, social issues, and political commentary (specifically focusing on local controversies such as food safety in spaza shops and populist movements) directly to social media audiences, independent of traditional mainstream media institutions.</p>
+</div>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="CL_CDA_Lecture_1_2026_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="CL_CDA_Lecture_1_2026_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="CL_CDA_Lecture_1_2026_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="CL_CDA_Lecture_1_2026_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="CL_CDA_Lecture_1_2026_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="CL_CDA_Lecture_1_2026_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="CL_CDA_Lecture_1_2026_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="CL_CDA_Lecture_1_2026_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="CL_CDA_Lecture_1_2026_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="CL_CDA_Lecture_1_2026_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
